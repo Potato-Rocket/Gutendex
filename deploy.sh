@@ -12,6 +12,6 @@ echo "Pushing to Docker Hub..."
 docker push "$IMAGE:latest"
 
 echo "Deploying on $HOST..."
-ssh "$HOST" "cd $STACK_DIR && docker compose pull gutendex && docker compose up -d --force-recreate gutendex"
+ssh "$HOST" "cd $STACK_DIR && sudo docker compose pull gutendex && sudo docker compose up -d --force-recreate gutendex"
 
 echo "Done."
