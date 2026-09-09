@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=gutendex
+      - POSTGRES_USER=gutendex
+      - POSTGRES_PASSWORD=changeme
+    restart: unless-stopped
+
+  gutendex:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8800:8000"
+    volumes:
+      - catalog:/app/catalog_files
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  catalog:

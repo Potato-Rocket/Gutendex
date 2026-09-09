@@ -20,10 +20,19 @@ env = environ.Env(
     ADMIN_NAMES=(list, []),
     ALLOWED_HOSTS=(list, []),
     DEBUG=(bool, False),
+    EMAIL_HOST=(str, ''),
+    EMAIL_HOST_ADDRESS=(str, ''),
+    EMAIL_HOST_PASSWORD=(str, ''),
+    EMAIL_HOST_USER=(str, ''),
     MANAGER_EMAILS=(list, []),
     MANAGER_NAMES=(list, []),
+    MEDIA_ROOT=(str, '/app/media'),
+    STATIC_ROOT=(str, '/app/staticfiles'),
 )
-environ.Env.read_env()
+environ.Env.read_env(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env'),
+    overwrite=False,
+)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
