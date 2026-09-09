@@ -7,6 +7,7 @@ library of free ebooks.
 
 Try it at [`gutendex.com`](http://gutendex.com).
 
+**Forked to add a Dockerfile, for the sake of easier selfhosting.**
 
 Why?
 ----
